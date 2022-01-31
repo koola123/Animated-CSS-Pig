@@ -1,0 +1,105 @@
+.pig {
+width: 160px;
+height: 160px;
+background: #dfa0a4;
+border-radius: 50%;
+margin: 150px auto;
+position: relative;
+}
+
+.pig::before, .pig::after {
+content: "";
+width: 60px;
+height: 60px;
+left: 0;
+top: 0;
+background: #f6cacc;
+position: absolute;
+border: 8px solid #dfa0a4;
+border-radius: 15px;
+z-index: -1;
+transform: rotate(30deg) skewX(30deg);
+}
+
+.pig::after {
+left: auto;
+right: 0;
+transform: rotate(-30deg) skewX(-30deg);
+}
+
+.eye {
+width: 20px;
+height: 20px;
+background: #fff;
+position: absolute;
+left: 40px;
+top: 60px;
+border-radius: 50%;
+animation: eyesopen 10s ease-in-out infinite;
+
+}
+
+.eye-r {
+left: auto;
+right: 40px;
+}
+
+.eye::before {
+content: "";
+width: 6px;
+height: 6px;
+background: #000;
+border-radius: 50%;
+position: absolute;
+left: calc(50% - 3px);
+top: calc(50% - 3px);
+animation: pupilMove 5s infinite;
+
+}
+
+.nose {
+width: 60px;
+height: 50px;
+border-radius: 50%;
+background: #f6cacc;
+position: absolute;
+left: calc(50% - 30px);
+bottom: 20px;
+}
+
+.nose::before, .nose::after {
+content: "";
+width: 10px;
+height: 10px;
+background: #dfa0a4;
+position: absolute;
+top: calc(50% - 5px);
+left: 15px;
+border-radius: 50%;
+}
+
+.nose::after {
+left: auto;
+right: 15px;
+}
+
+@keyframes eyesopen {
+0%, 23%, 25%, 65%, 67%, 89%, 91%, 100% {
+transform: scaleY(1);
+}
+24%, 66%, 90% {
+transform: scaleY(0);
+}
+}
+
+@keyframes pupilMove {
+0% {
+left: 3px;
+}
+50% {
+left: 12px;
+}
+100% {
+left: 3px;
+}
+}
